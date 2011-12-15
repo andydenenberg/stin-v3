@@ -1,0 +1,50 @@
+
+
+      <div class="content">
+        
+		<div class = "row"> <!-- /outer box -->
+			<div class = "span16">
+				
+				<h1>All Users</h1>
+
+				<table id="users">
+					<thead>
+						<tr>
+							<th>Username</th>
+							<th>First Name</th>
+							<th>Last Name</th>
+							<th>Email</th>
+							<th>Login Count</th>
+							<th>Last Sign In</th>
+							<th>Role</th>
+							<th>Created At</th>
+							<th>Last Edited</th>
+							<th></th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @users.each do |user| %>
+						<tr>
+							<th><%= user.username %></th>
+							<th><%= user.first_name %></th>
+							<th><%= user.last_name %></th>
+							<th><%= link_to user.email, user_path(user) %></th>
+							<th><%= user.sign_in_count %></th>
+							<th><%if user.last_sign_in_at.blank? %>Never logged in<% else %><%= time_ago_in_words(user.last_sign_in_at.to_datetime)+' ago' %><% end %></th>
+							<th><%= user.role %></th>
+							<th><%= user.created_at.to_s(:datetime).downcase %></th>
+							<th><%= user.updated_at.to_s(:datetime).downcase %></th>
+							<th><%= link_to "Edit", edit_user_path(user) %></th>
+							<th><%= link_to "Delete", user, :method => :delete, :confirm => "Are you sure?" %></th>
+						</tr>
+						<% end %>
+					</tbody>
+				</table>
+				
+				
+				<%= link_to 'New User', new_user_path %> | <%= link_to "Home" , root_path %>
+
+
+
+			</div> 

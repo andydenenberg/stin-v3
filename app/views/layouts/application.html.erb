@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>StinV2</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <style type="text/css">
+  html, body {
+    background-color: #eee;
+  }
+    body {
+      padding-top: 40px; /* 40px to make the container go all the way to the bottom of the topbar */
+    }
+	.page-header {
+	  margin-bottom: 10px;
+	  height: 40px;
+	  border-bottom: 1px solid #ddd;
+	  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	  -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	}
+
+  </style>
+</head>
+<body>
+
+    <div class="topbar">
+      <div class="fill">
+        <div class="container">
+          <a class="brand" href="#">Supporting Those in Need</a>
+          <ul class="nav">
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+		  </ul>
+		<div class="pull-right">
+		  <ul>
+			<% if user_signed_in? %>
+				<li><%= link_to current_user.email, edit_user_path(current_user) %>
+			  	<li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+			<% else %>
+			  	<li><%= link_to('Login', new_user_session_path) %></li>
+			<% end %>
+          </ul>
+		</div>
+
+        </div>
+      </div>
+    </div>
+
+	<div class="container">
+
+	    <div class="page-header">
+				<ul class="pills">
+				  <li class="active"><%= link_to 'Home' , root_path %></li>
+				  <li><a href="NewOrganizations">Organizations</a></li>
+				  <li><a href="NewActivities">Activities</a></li>
+				  <li><a href="#">Donations</a></li>
+				  <li><a href="#">News and Comments</a></li>
+				  <li><%= link_to "Users", users_path %></li>
+				</ul>
+	    </div>
+	<p class="notice"><%= notice %></p>
+	<p class="alert"><%= alert %></p>
+
+<%= yield %>
+
+</div>
+</div>
+
+</body>
+</html>
