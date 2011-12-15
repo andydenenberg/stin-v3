@@ -5,7 +5,18 @@ gem 'rails', '3.1.1'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
+gem 'therubyracer-heroku', :group => :production
+group :production do
+gem 'pg'
+end
+
+group :development, :test do
 gem 'sqlite3'
+end
+
+gem 'paperclip', '~> 2.4' 
+require 'yaml'
+gem 'aws-s3'
 
 gem 'devise'
 
