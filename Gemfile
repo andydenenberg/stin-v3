@@ -17,7 +17,7 @@ end
 gem 'paperclip', '~> 2.4' 
 require 'yaml'
 gem 'aws-s3'
-
+gem 'sendgrid'
 gem 'devise'
 
 # Gems used only for assets and not required
