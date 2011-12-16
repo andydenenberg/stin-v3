@@ -17,8 +17,8 @@ class Org < ActiveRecord::Base
       :storage => :s3 ,
       :bucket => 'stin_v4' ,
       :s3_credentials => {
-        :access_key_id =>  ENV['S3_KEY'] , # || config['access_key_id'] ,  # WATCHOUT for THE COMMA
-        :secret_access_key =>  ENV['S3_SECRET']   #|| config['secret_access_key']
+        :access_key_id =>  ENV['S3_KEY'] || config['access_key_id'] ,  # WATCHOUT for THE COMMA
+        :secret_access_key =>  ENV['S3_SECRET'] || config['secret_access_key']
       } ,
       :styles => {
         :tiny => "25x25" ,
