@@ -1,18 +1,32 @@
-<div class="block">
-  <div class="secondary-navigation">
-    <ul class="wat-cf">
-      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", orgs_path  %></li>
-      <li class="active"><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_org_path %></li>
-    </ul>
-  </div>          
-  <div class="content">            
-    <h2 class="title"><%= t("web-app-theme.new", :default => "New")%>  Org</h2>
-    <div class="inner">
+<style type="text/css">
+	.page-header {
+	  margin-bottom: 10px;
+	  height: 40px;
+	  border-bottom: 1px solid #ddd;
+	  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	  -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	}
+</style>
+
+
+      <div class="content">
+	
+ 		<div class="page-header">
+				<ul class="pills">
+				  <li class="active"><%= link_to 'Home' , root_path %></li>
+				  <li><%= link_to 'Organizations' , orgs_path %></li>
+				  <li><%= link_to 'Activities' , activities_path %></li>
+				  <li><a href="#">Donations</a></li>
+				  <li><a href="#">News and Comments</a></li>
+				  <li><%= link_to "Users", users_path %></li>
+				</ul>
+		</div>
+		<p class="notice"><%= notice %></p>
+		<p class="alert"><%= alert %></p>
+		
       <%= form_for :org, :url => orgs_path, :html => { :class => :form } do |f| -%>
         <%= render :partial => "form", :locals => {:f => f} %>
       <% end -%>
-    </div>
-  </div>
-</div>
 
-<% content_for :sidebar, render(:partial => 'sidebar') -%>
+</div>
