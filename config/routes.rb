@@ -1,4 +1,8 @@
 StinV4::Application.routes.draw do
+  resources :activities
+
+  resources :orgs
+
   devise_for :users, :path_prefix => 'd'
   resources :users
   

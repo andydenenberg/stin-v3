@@ -6,6 +6,21 @@
  *= require_tree . 
 */
 
+html, body {
+  background-color: #eee;
+}
+  body {
+    padding-top: 40px; /* 40px to make the container go all the way to the bottom of the topbar */
+  }
+	.page-header {
+	  margin-bottom: 10px;
+	  height: 40px;
+	  border-bottom: 1px solid #ddd;
+	  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	  -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	}
+
 .container > footer p {
   text-align: center; /* center align it with the container */
 }
@@ -16,7 +31,11 @@
 /* The white background content wrapper */
 .content {
   background-color: #fff;
-  padding: 20px;
+padding-top: 0px;			/* The padding was 20 all the way around */
+padding-right: 20px;
+padding-bottom: 20px;
+padding-left: 20px;
+
   margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
   -webkit-border-radius: 0 0 6px 6px;
      -moz-border-radius: 0 0 6px 6px;
@@ -24,4 +43,13 @@
   -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
      -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
           box-shadow: 0 1px 2px rgba(0,0,0,.15);
+}
+.pills a {
+  margin: 5px 3px 5px 0;
+  padding: 0 15px;
+  line-height: 40px;				/* The line height was 30 */
+  text-shadow: 0 1px 1px #ffffff;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
 }

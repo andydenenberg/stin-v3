@@ -11,7 +11,37 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111215221819) do
+ActiveRecord::Schema.define(:version => 20111216013428) do
+
+  create_table "activities", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "org_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "activities", ["org_id"], :name => "index_activities_on_org_id"
+  add_index "activities", ["user_id"], :name => "index_activities_on_user_id"
+
+  create_table "orgs", :force => true do |t|
+    t.string   "organization"
+    t.string   "division"
+    t.string   "address"
+    t.string   "city"
+    t.string   "description"
+    t.string   "background"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+  end
+
+  add_index "orgs", ["user_id"], :name => "index_orgs_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
