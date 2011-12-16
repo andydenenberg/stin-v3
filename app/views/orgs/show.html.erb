@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Organization:</b>
+  <%= @org.organization %>
+</p>
+
+<p>
+  <b>Division:</b>
+  <%= @org.division %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @org.address %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @org.city %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @org.description %>
+</p>
+
+<p>
+  <b>Background:</b>
+  <%= @org.background %>
+</p>
+
+
+<%= link_to 'Edit', edit_org_path(@org) %> |
+<%= link_to 'Back', orgs_path %>

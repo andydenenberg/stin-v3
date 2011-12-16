@@ -1,0 +1,58 @@
+<style type="text/css">
+	.page-header {
+	  margin-bottom: 10px;
+	  height: 40px;
+	  border-bottom: 1px solid #ddd;
+	  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	  -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	}
+</style>
+
+
+      <div class="content">
+	
+ 		<div class="page-header">
+				<ul class="pills">
+				  <li><%= link_to 'Home' , root_path %></li>
+				  <li><%= link_to 'Organizations' , orgs_path %></li>
+				  <li class="active"><a href="#">Activities</a></li>
+				  <li><a href="#">Donations</a></li>
+				  <li><a href="#">News and Comments</a></li>
+				  <li><%= link_to "Users", users_path %></li>
+				</ul>
+		</div>
+		<p class="notice"><%= notice %></p>
+		<p class="alert"><%= alert %></p>
+		
+		<h1>Listing activities</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Org</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @activities.each do |activity| %>
+  <tr>
+    <td><%= activity.name %></td>
+    <td><%= activity.description %></td>
+    <td><%= activity.org %></td>
+    <td><%= activity.user %></td>
+    <td><%= link_to 'Show', activity %></td>
+    <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
+    <td><%= link_to 'Destroy', activity, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Activity', new_activity_path %>
+
+</div>
