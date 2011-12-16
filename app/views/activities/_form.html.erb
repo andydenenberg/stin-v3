@@ -9,9 +9,8 @@
 	}
 </style>
 
+ <div class="content">
 
-      <div class="content">
-	
  		<div class="page-header">
 				<ul class="pills">
 				  <li><%= link_to 'Home' , root_path %></li>
@@ -24,39 +23,73 @@
 		</div>
 		<p class="notice"><%= notice %></p>
 		<p class="alert"><%= alert %></p>
-		
-<%= form_for(@activity) do |f| %>
-  <% if @activity.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@activity.errors.count, "error") %> prohibited this activity from being saved:</h2>
 
-      <ul>
-      <% @activity.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+		<%= form_for(@activity) do |f| %>
+		  <% if @activity.errors.any? %>
+		    <div id="error_explanation">
+		      <h2><%= pluralize(@activity.errors.count, "error") %> prohibited this activity from being saved:</h2>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-	<%= f.label :org_id, "Organization", :class => :label %>
-	<%= f.collection_select( :org_id , Org.all, :id, :organization) %>
-  </div>
-  <div class="field">
-	<%= f.label :user_id, "Username", :class => :label %>
-	<%= f.collection_select( :user_id , User.all, :id, :username) %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+		      <ul>
+		      <% @activity.errors.full_messages.each do |msg| %>
+		        <li><%= msg %></li>
+		      <% end %>
+		      </ul>
+		    </div>
+		  <% end %>
 
-</div>
+
+		<div class = "row"> <!-- /outer box -->
+			<div class = "span14">
+				
+				<br><br>
+				
+		      <div class="row"> <!-- /middle row -->
+					<div class="span14">
+						
+					<div class = "row"> 
+						<div class = "span6">   <!-- /left Columns -->
+						  <div class="clearfix">
+					          <label for="xlInput3">Name</label>
+					          <div class="input">
+						    	<%= f.text_field :name %>
+							  </div>
+						  </div>
+						
+						  <div class="clearfix">
+					          <label for="xlInput3">Organization</label>
+					          <div class="input">
+								<%= f.collection_select( :org_id , Org.all, :id, :organization) %>
+							  </div>
+						  </div>
+						  <div class="clearfix">
+					          <label for="xlInput3">Organization</label>
+					          <div class="input">
+								<%= f.collection_select( :user_id , User.all, :id, :username) %>
+							  </div>
+						  </div>
+  			      		</div>
+					
+				        <div class="span7">  <!-- /right Columns -->
+
+				        <div class="clearfix">
+				          <label for="comments">Description</label>
+				          <div class="input textarea span5">
+						    <%= f.text_area :description ,  :class=>"xlarge" ,  :rows => '7', %>
+				          </div>
+				        </div><!-- /clearfix -->
+
+          	 			</div>
+
+			</div> <!-- /middle row -->
+
+		 <div class="actions">
+		   <button type="submit" class="btn success">Send</button>&nbsp;&nbsp;&nbsp;<a class="btn info" href="/">Cancel &raquo;</a>
+		 </div>
+
+			<% end %>
+
+  		</div> <!-- /outer box -->
+
+  </div> <!-- /content -->
+
+

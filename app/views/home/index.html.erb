@@ -22,10 +22,86 @@
 				  <li><%= link_to "Users", users_path %></li>
 				</ul>
 		</div>
-		<p class="notice"><%= notice %></p>
-		<p class="alert"><%= alert %></p>
-		
-		<h1>Home#index</h1>
-		<p>Find me in app/views/home/index.html.erb</p>
+
+				<div class = "row"> <!-- /outer box -->
+					<div class = "span16">
+
+				      <div class="row"> <!-- /middle row -->
+							<div class="span10">
+
+								<div class = "row"> <!-- /left Columns -->
+									<div class = "span8 offset1">
+											<br>
+											<h2>Welcome<small><b> to Supporting Those in Need of Support</small></b></h2>
+									</div>
+								</div>
+								
+							<br>
+								<div class = "row">
+									<div class = "span4 offset1">Total Activities for Month:</div>
+									<div class = "span1">23</div>
+									<div class = "span2"></div>
+								</div>
+
+								<div class = "row">
+									<div class = "span4 offset1">Total Hours for Month:</div>
+									<div class = "span1">6.2</div>
+								</div>
+
+								<div class = "row">
+									<div class = "span4 offset1">Total Donations for Month:</div>
+									<div class = "span1">$12.50</div>
+									<div class = "span3"></div>
+								</div>
+						<br>
+								<div class = "row">
+									<div class = "span2 offset1"><h4>Be Active!</h4></div>
+									<div class = "span3"><%= link_to 'Help Now', new_activity_path , :class => "btn success"%></div>
+									<div class = "span3"><%= link_to 'Donate Now', new_activity_path , :class => "btn success"%></div>
+								</div>
+
+							</div>
+
+							<div class="span5"><!-- /right column -->
+		            	  		<h3>Mission</h3>
+			        	  		<p>Our Mission is the help those in need through activities and financial support.  We have created this web site to record and manage our activities so that we can be more efficient and effective with our time and money.</p><p>If you have not done so already, please setup your user profile and start to record your activities and charitable donations.</p>
+		          	 		</div>
+
+					</div> <!-- /middle row -->
+
+		  		</div> <!-- /outer box -->
 		
 		</div>
+		
+				<div class = "row"> <!-- /outer box -->
+					<div class = "span16">
+						
+						<div class="row"> <!-- /middle row -->
+							<div class="span4 offset2">
+				
+				      	<br>
+				
+		            	  		<h3>Recent Activity</h3>
+
+Our latest Charitable Donation is supporting children in Columbia<br>
+
+<br><img class="thumbnail" src="/assets/ColumbianChildren12_2011.jpg" alt="">
+	
+							</div>
+
+							<div class="span5 offset4">
+								
+								<br>
+
+		            	  		<h3>Upcoming Opportunities</h3>
+
+Check back for opportunities to help...<br>
+
+
+							</div>
+							
+						</div>
+		
+			  		</div> <!-- /outer box -->
+		
+				</div><!-- /contents -->

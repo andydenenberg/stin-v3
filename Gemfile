@@ -14,6 +14,8 @@ group :development, :test do
 gem 'sqlite3'
 end
 
+gem 'will_paginate'
+
 gem 'paperclip', '~> 2.4' 
 require 'yaml'
 gem 'aws-s3'
