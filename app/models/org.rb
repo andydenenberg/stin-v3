@@ -18,7 +18,7 @@ class Org < ActiveRecord::Base
       :bucket => 'andys_paperclip' ,
       :s3_credentials => {
         :access_key_id =>  ENV['S3_KEY'] , #|| config['access_key_id'] ,  # WATCHOUT for THE COMMA
-        :secret_access_key =>  ENV['S3_SECRET']  , #|| config['secret_access_key']
+        :secret_access_key =>  ENV['S3_SECRET']  #|| config['secret_access_key']
       } ,
       :styles => {
         :tiny => "25x25" ,
