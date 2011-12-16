@@ -7,8 +7,10 @@ StinV4::Application.initialize!
 # config = YAML.load(File.read('../../../desktop/config.yml'))   
 
 ActionMailer::Base.smtp_settings = {
-  :user_name =>  ENV['SENDGRID_USERNAME']  || config['user_name'],
-  :password => ENV['SENDGRID_PASSWORD'] || config['password'],
+#  :user_name =>  config['user_name'],
+#  :password => config['password'],
+  :user_name =>  ENV['SENDGRID_USERNAME'] ,
+  :password => ENV['SENDGRID_PASSWORD'] ,
   :domain => "ospreypointpartners.com",
   :address => "smtp.sendgrid.net",
   :port => 587,
