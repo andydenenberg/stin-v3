@@ -1,35 +1,48 @@
-<p id="notice"><%= notice %></p>
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "List", orgs_path  %></li>
+      <li><%= link_to "New", new_org_path %></li>
+      <li class="active"><%= link_to "Show", org_path %></li>
+    </ul>
+  </div>          
+  <div class="content">
+    <div class="inner">
+      
+        <p><b>Organization:</b>
+          <%= @org.organization %>
+        </p>
 
-<p>
-  <b>Organization:</b>
-  <%= @org.organization %>
-</p>
+        <p><b>Logo:</b>
+          <%= show_photo(@org,:thumb) %>
+        </p>
+		
+        <p><b>Division:</b>
+          <%= @org.division %>
+        </p>
 
-<p>
-  <b>Division:</b>
-  <%= @org.division %>
-</p>
+        <p><b>Address:</b>
+          <%= @org.address %>
+        </p>
 
-<p>
-  <b>Address:</b>
-  <%= @org.address %>
-</p>
+        <p><b>City:</b>
+          <%= @org.city %>
+        </p>
 
-<p>
-  <b>City:</b>
-  <%= @org.city %>
-</p>
+        <p><b>Description:</b>
+          <%= @org.description %>
+        </p>
 
-<p>
-  <b>Description:</b>
-  <%= @org.description %>
-</p>
+        <p><b>Background:</b>
+          <%= @org.background %>
+        </p>
 
-<p>
-  <b>Background:</b>
-  <%= @org.background %>
-</p>
+      <div class="wat-cf">
+        <%= link_to image_tag("web-app-theme/application_edit.png", :alt => "Edit") + " " + "Edit", edit_org_path(@org), :class => "button" %> 
+        <%= link_to image_tag("web-app-theme/cross.png", :alt => "Delete") + " " + "Delete", org_path(@org), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+      </div>      
+    </div>
+  </div>
+</div>
 
-
-<%= link_to 'Edit', edit_org_path(@org) %> |
-<%= link_to 'Back', orgs_path %>
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

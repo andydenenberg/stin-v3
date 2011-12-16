@@ -1,15 +1,8 @@
 class OrgsController < ApplicationController
   # GET /orgs
   # GET /orgs.json
-
-  helper_method :sort_column, :sort_direction
-
   def index
-    @orgs = Org.order(sort_column + " " + sort_direction).paginate :page => params[:page], :per_page => 10, :order => 'organization'
-    @users = User.all
-    @logo_size = params[:logo_size] == nil ? :tiny : params[:logo_size]
-  	
-#    @sum_value = Donation.sum("value")
+    @orgs = Org.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -32,10 +25,6 @@ class OrgsController < ApplicationController
   # GET /orgs/new.json
   def new
     @org = Org.new
-#    @org.donor_id = 1
-#     @activity = Activity.find(:all, :conditions => { :name  => 'clean' })
-
-@org.user_id = current_user.id
 
     respond_to do |format|
       format.html # new.html.erb
@@ -84,30 +73,11 @@ class OrgsController < ApplicationController
   # DELETE /orgs/1.json
   def destroy
     @org = Org.find(params[:id])
-    a = Activity.first
-      if a
-        puts "There are activities associated with #{@org.organization} - it cannot be deleted"
-      else
-        puts "The org has no activities"
-        @org.destroy
-      end
+    @org.destroy
 
     respond_to do |format|
       format.html { redirect_to orgs_url }
       format.json { head :ok }
     end
   end
-
-  private
-  
-  def sort_column
-    Org.column_names.include?(params[:sort]) ? params[:sort] : "organization"
-  end
-
-  def sort_direction
-    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
-  end
-
 end
-
-  

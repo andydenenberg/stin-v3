@@ -4,11 +4,11 @@ require File.expand_path('../application', __FILE__)
 # Initialize the rails application
 StinV4::Application.initialize!
 
+# config = YAML.load(File.read('../../../desktop/config.yml'))   
+
 ActionMailer::Base.smtp_settings = {
-#  :user_name => "andydenenberg",
-#  :password => "budak202",
-  :user_name => "app2014218@heroku.com",
-  :password => "nygujkof",
+  :user_name =>  ENV['SENDGRID_USERNAME']  || config['user_name'],
+  :password => ENV['SENDGRID_PASSWORD'] || config['password'],
   :domain => "ospreypointpartners.com",
   :address => "smtp.sendgrid.net",
   :port => 587,
