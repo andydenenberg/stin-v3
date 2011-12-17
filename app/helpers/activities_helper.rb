@@ -50,6 +50,12 @@ module ActivitiesHelper
     x[impact][0]
   end
   
+  def time_frames
+    time_frame = Array.new
+    time_frame = [['All' , 0], ['Current Month' , 1], ['Last Month', 2], ['Current Year', 3]]
+    return time_frame
+  end
+  
   def reward_choices
     reward = Array.new
     reward = [["Like Mick Jagger", 0 ],["Not worthwhile" , 1 ],["Was OK", 2 ],["Great Feeling", 3], ["Unforgettable", 4 ]]
@@ -64,7 +70,7 @@ module ActivitiesHelper
   def users_for_select
     @user = Array.new
     @user = [ 'All' ]
-    @user += User.all.collect { |u| [u.first, u.id] }
+    @user += User.all.collect { |u| [u.username, u.id] }
     return @user
   end
 

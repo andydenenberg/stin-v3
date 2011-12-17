@@ -1,4 +1,22 @@
 class ActivitiesController < ApplicationController
+
+  def sorted
+      user = params[:user]
+      organization = params[:org]
+
+      @activities = user == 'All' && organization == 'All' ? Activity.all :
+      @activities = user == 'All' && organization != 'All' ? Activity.where(:org_id => organization ).order('starttime') :
+      @activities = user != 'All' && organization == 'All' ? Activity.where(:user_id => user ).order('starttime') :
+      @activities = user != 'All' && organization != 'All' ? Activity.where(:user_id => user, :org_id => organization ).order('starttime')  :
+      never_get_here
+                                    
+      @user_time = Activity.user_time(user, organization)
+      @orgs = Org.all
+      @users = User.all
+      render :partial => 'index', :layout => false
+
+  end
+
   # GET /activities
   # GET /activities.json
   def index

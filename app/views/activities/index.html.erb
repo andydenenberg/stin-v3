@@ -27,6 +27,42 @@
 			
 </style>
 
+<script type="text/javascript">
+
+$(document).ready(function(){
+//	 processChange();
+})
+
+
+function processChange( ) {
+    // make a GET call and replace the contents
+
+
+   WhichUser = document.getElementById('users').value ;
+   WhichOrganization = document.getElementById('organizations').value ;
+    
+    $.get('<%= sorted_activities_path %>', 
+          { user:WhichUser, org:WhichOrganization }, 
+                  function(data) {
+            $("#table").html(data);
+          });
+//		alert("sort_order");
+
+  }
+
+$(function() {				
+  $("#users").change(function() {
+     processChange( ) ;
+  });
+				
+  $("#organizations").change(function() {
+     processChange( ) ;
+  });
+
+
+});			
+			
+</script>
 
       <div class="content">
 	
@@ -43,33 +79,15 @@
 		<p class="notice"><%= notice %></p>
 		<p class="alert"><%= alert %></p>
 		
-		<h1>Listing activities</h1>
+		Select Organization <%= select_tag "organizations", options_for_select(orgs_for_select) %>
+		&nbsp; 
+		User <%= select_tag "users", options_for_select(users_for_select) %>
+		&nbsp;			  
+		Timeframe <%= select_tag "time_frame", options_for_select(time_frames) %>	<br><br>			  
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Org</th>
-    <th>User</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+		<div id="table"> <%= render :partial => 'index', :layout => false %>
 
-<% @activities.each do |activity| %>
-  <tr>
-    <td><%= activity.name %></td>
-    <td><%= activity.description %></td>
-    <td><%= activity.org %></td>
-    <td><%= activity.user %></td>
-    <td><%= link_to 'Show', activity %></td>
-    <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
-    <td><%= link_to 'Destroy', activity, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
 
-<%= will_paginate @posts %>
 
 <br />
 

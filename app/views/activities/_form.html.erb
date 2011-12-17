@@ -38,16 +38,10 @@
 		  <% end %>
 
 
-		<div class = "row"> <!-- /outer box -->
-			<div class = "span14">
+	<div class = "row"> <!-- /outer box -->
+		<div class = "span16">
 				
-				<br><br>
-				
-		      <div class="row"> <!-- /middle row -->
-					<div class="span14">
-						
-					<div class = "row"> 
-						<div class = "span6">   <!-- /left Columns -->
+							
 						  <div class="clearfix">
 					          <label for="xlInput3">Name</label>
 					          <div class="input">
@@ -62,15 +56,40 @@
 							  </div>
 						  </div>
 						  <div class="clearfix">
-					          <label for="xlInput3">Organization</label>
+					          <label for="xlInput3">Worker</label>
 					          <div class="input">
 								<%= f.collection_select( :user_id , User.all, :id, :username) %>
 							  </div>
 						  </div>
-  			      		</div>
-					
-				        <div class="span7">  <!-- /right Columns -->
+						  <div class="clearfix">
+					          <label for="xlInput3">Impact</label>
+					          <div class="input">
+							    <span class="description">How useful was the activity?</span><br>
+							    <%= f.select :impact, impact_choices %>
+							  </div>
+						  </div>
+						  <div class="clearfix">
+					          <label for="xlInput3">Impact</label>
+					          <div class="input">
+							    <span class="description">How did the activity make you feel?</span><br>
+							    <%= f.select :reward, reward_choices %>
+							  </div>
+						  </div>
+						  <div class="clearfix">
+					          <label for="xlInput3">Start Date</label>
+					          <div class="input">
+							    <%= f.datetime_select :starttime, :default => { :hour => Time.now.hour, :minute => Time.now.min } , :ampm => true %><br>
+							  </div>
+						  </div>
+						  <div class="clearfix">
+					          <label for="normalSelect">Start Date</label>
+					          <div class="input">
+							    <%= f.datetime_select :endtime,  :default => { :hour => ( Time.now.+2.hour ).hour, :minute => Time.now.min }, :ampm => true %>	
+							  </div>
+						  </div>
 
+
+ 
 				        <div class="clearfix">
 				          <label for="comments">Description</label>
 				          <div class="input textarea span5">
@@ -78,9 +97,6 @@
 				          </div>
 				        </div><!-- /clearfix -->
 
-          	 			</div>
-
-			</div> <!-- /middle row -->
 
 		 <div class="actions">
 		   <button type="submit" class="btn success">Send</button>&nbsp;&nbsp;&nbsp;<a class="btn info" href="/">Cancel &raquo;</a>
@@ -88,8 +104,8 @@
 
 			<% end %>
 
-  		</div> <!-- /outer box -->
+		</div> <!-- /outer box span-->
+  </div> <!-- /outer box row-->
 
-  </div> <!-- /content -->
-
+</div> <!-- /content -->
 

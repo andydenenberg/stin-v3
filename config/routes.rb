@@ -1,6 +1,12 @@
 StinV4::Application.routes.draw do
-  resources :activities
 
+  #  resources :activities
+  resources :activities do
+    collection do
+      get 'sorted'
+    end
+  end
+  
   resources :orgs
 
   devise_for :users, :path_prefix => 'd'

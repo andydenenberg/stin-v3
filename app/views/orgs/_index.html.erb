@@ -1,4 +1,6 @@
-<table class="table">
+
+<table class="zebra-striped">
+
   <tr>  
     <th><%= show_logo %></th>
     <th><%= sortable 'organization', "Organization" %></th>
@@ -8,11 +10,13 @@
 	  <th>Donations</th>
     <th class="last">&nbsp;</th>
   </tr>
+
   <% @orgs.each do |org| -%>
-  <tr class="<%= cycle("odd", "even") %>">
-	
+  <tr>
 	  <td><%= show_photo(org,@logo_size)  %>
       <td><%= link_to org.organization, org_path(org) %></td>
+	  <td><%= user_first_name(org.user_id) %></td>
+	  <td><%= total_activity_time(org.id) %></td>
 	  <td><%= link_to "New", new_activity_path %></td>
 	
     <td class="last">

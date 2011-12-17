@@ -43,6 +43,17 @@
 			</div>
 
 				<div class = "row"> 
+					<div class = "span6">   <!-- /right Columns -->
+		        <div class="clearfix">
+		          <label for="comments">City</label>
+		          <div class="input textarea">
+				    <%= f.text_field :city  %>
+		          </div>
+		        </div><!-- /clearfix -->
+				</div>
+			</div>
+
+				<div class = "row"> 
 					<div class = "span6">   <!-- /left Columns -->
 					  <div class="clearfix">
 					    	<label for="xlInput3">Logo or Picture</label>
@@ -55,11 +66,24 @@
 					</div>
 				</div>
 
+					<div class = "row"> 
+						<div class = "span6">   <!-- /right Columns -->
+			        <div class="clearfix">
+			          <label for="comments">Sponsor</label>
+			          <div class="input textarea span5">
+						<%= f.collection_select( :user_id , User.all, :id, :username) %><br>
+			          </div>
+			        </div><!-- /clearfix -->
+					</div>
+				</div>
+
 		</div><!-- /left box span-->
 								
 		<div class = "row"> 
 	        <div class="span6">  <!-- /right box -->
-
+<br>
+<br>
+<br>
 				<div class = "row"> 
 					<div class = "span6">   <!-- /right Columns -->
 			        <div class="clearfix">
@@ -74,37 +98,14 @@
 				<div class = "row"> 
 					<div class = "span6">   <!-- /right Columns -->
 		        <div class="clearfix">
-		          <label for="comments">Description</label>
+		          <label for="comments">Background</label>
 		          <div class="input textarea">
-				    <%= f.text_field :city  %>
-				    <span class="description">Ex: a simple text</span>
+				    <%= f.text_area :background ,  :class=>"xlarge" ,  :rows => '7', %>
 		          </div>
 		        </div><!-- /clearfix -->
 				</div>
 			</div>
 
-				<div class = "row"> 
-					<div class = "span6">   <!-- /right Columns -->
-		        <div class="clearfix">
-		          <label for="comments">Description</label>
-		          <div class="input textarea">
-				    <%= f.text_field :background  %>
-				    <span class="description">Ex: a simple text</span>
-		          </div>
-		        </div><!-- /clearfix -->
-				</div>
-			</div>
-
-				<div class = "row"> 
-					<div class = "span6">   <!-- /right Columns -->
-		        <div class="clearfix">
-		          <label for="comments">User</label>
-		          <div class="input textarea span5">
-					<%= f.collection_select( :user_id , User.all, :id, :username) %><br>
-		          </div>
-		        </div><!-- /clearfix -->
-				</div>
-			</div>
 
   	 	</div><!-- /right box span-->
 
