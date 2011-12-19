@@ -33,6 +33,7 @@
 				
 <table class="zebra-striped">
   <tr>
+		<th>Photo</th>
 		<th>Username</th>
 		<th>Email</th>
 		<th>Login Count</th>
@@ -44,6 +45,7 @@
 
 	<% @users.each do |user| %>
 		<tr>
+			<td><%= show_photo(user,:thumb) %></td>
 			<td><%= user.username %></td>
 			<td><%= link_to user.email, user_path(user) %></td>
 			<td><%= user.sign_in_count %></td>

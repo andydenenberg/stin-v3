@@ -63,8 +63,18 @@
 		</div>
 	 </div><!-- /clearfix -->
 
+     <div class="clearfix">
+       <label for="xlInput3">Photo</label>
+       <div class="input">
+		<%= show_photo(@user,:thumb) %><br><br>			
+	    <%= f.file_field :avatar, :class => 'image' %><br>
+	  	<span class="description">Please upload a new picture</span>
+		</div>
+	 </div><!-- /clearfix -->
+
+
  <div class="actions">
-   <button type="submit" class="btn success">Send</button>&nbsp;&nbsp;&nbsp;<%= link_to 'Cancel >>', users_path , :class => "btn info"%>
+   <button type="submit" class="btn success">Update</button>&nbsp;&nbsp;&nbsp;<%= link_to 'Cancel >>', users_path , :class => "btn info"%>
  </div>
 
 
