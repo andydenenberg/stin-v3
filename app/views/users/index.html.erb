@@ -48,14 +48,15 @@
 			<td><%= link_to user.email, user_path(user) %></td>
 			<td><%= user.sign_in_count %></td>
 			<td><%if user.last_sign_in_at.blank? %>Never logged in<% else %><%= time_ago_in_words(user.last_sign_in_at.to_datetime)+' ago' %><% end %></td>
-			<td><%= user.role %></td>
+			<td><%= x_roles(user.role) %></td>
 			<td><%= link_to "Edit", edit_user_path(user) %></td>
 			<td><%= link_to "Delete", user, :method => :delete, :confirm => "Are you sure?" %></td>
 		</tr>
 <% end %>
 </table>
 
-				<%= link_to 'New User', new_user_path %> | <%= link_to "Home" , root_path %>
+<div class = "span6"><%= link_to 'Add User', new_user_path , :class => "btn success"%> <%= link_to 'Home', root_path , :class => "btn info"%></div>
+
 			</div> 
 		</div>
 	</div>		

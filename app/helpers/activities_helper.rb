@@ -21,7 +21,7 @@ module ActivitiesHelper
     activities = Activity.all
     total_hours = 0
     activities.each do |act|
-      total_hours += ( act.endtime - act.starttime )/3600
+      total_hours += act.duration
     end
     return total_hours
   end
@@ -29,13 +29,14 @@ module ActivitiesHelper
   def total_activity_time(org_id)
     if org_id == "all"
       activities = Activity.all
-    else
-      activities = Activity.find(:all, :conditions => { :org_id  => org_id })
-    end
-    total_hours = 0
-    activities.each do |act|
-      total_hours += ( act.endtime - act.starttime )/3600
-    end
+   else
+     activities = Activity.find(:all, :conditions => { :org_id  => org_id })
+   end
+   total_hours = 0
+   activities.each do |act|
+     total_hours += act.duration
+   end
+
     return total_hours
   end
 
@@ -67,6 +68,13 @@ module ActivitiesHelper
 	  r[reward][0]
 	end
     
+  def users_for_activities
+    @user = Array.new
+    @user = [ ' ' ]
+    @user += User.all.collect { |u| [u.username, u.id] }
+    return @user
+  end
+
   def users_for_select
     @user = Array.new
     @user = [ 'All' ]

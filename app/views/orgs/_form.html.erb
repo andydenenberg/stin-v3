@@ -1,16 +1,23 @@
+<% if @org.errors.any? %>
+		<div class="alert-message warning">
+		  <p><strong><%= pluralize(@org.errors.count, "error") %> prohibited this activity from being saved:</strong></p>
+			<ul><% @org.errors.full_messages.each do |msg| %>
+		        <li><%= msg %></li>
+		    <% end %>
+			</ul>
+		</div>
+<% end %>
+
 
 <div class = "row"> <!-- /outer box -->
 	<div class = "span16">
 		
-		<br><br>
 						
 	<div class = "row"> <!-- /left box -->
 		<div class = "span6">   
 
 			<div class = "row"> <!-- /left Columns -->
 				<div class = "span6">   
-					<fieldset>
-					  <legend>New Organization</legend>
 					  <div class="clearfix">
 					    <label for="xlInput3">Name of Organization</label>
 					    <div class="input">
@@ -81,9 +88,7 @@
 								
 		<div class = "row"> 
 	        <div class="span6">  <!-- /right box -->
-<br>
-<br>
-<br>
+
 				<div class = "row"> 
 					<div class = "span6">   <!-- /right Columns -->
 			        <div class="clearfix">
@@ -114,12 +119,8 @@
 </div> <!-- /outer box row-->
 
 <div class="actions">
-  <button type="submit" class="btn success">Send</button>&nbsp;&nbsp;&nbsp;<a class="btn info" href="/">Cancel &raquo;</a>
+  <button type="submit" class="btn success">Send</button>&nbsp;&nbsp;&nbsp;<%= link_to 'Cancel >>', orgs_path , :class => "btn info"%>
 </div>
 
 </div>
-
-
-
-
 

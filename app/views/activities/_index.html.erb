@@ -2,28 +2,29 @@
 <table class="zebra-striped">
   <tr>
     <th>Name</th>
-    <th>Description</th>
-    <th>Org</th>
+    <th>Organization</th>
     <th>User</th>
-    <th></th>
+    <th>Duration</th>
+    <th>Date</th>
     <th></th>
     <th></th>
   </tr>
 
 <% @activities.each do |activity| %>
   <tr>
-    <td><%= activity.name %></td>
-    <td><%= activity.description %></td>
+    <td><%= link_to activity.name , activity_path(activity) %></td>
     <td><%= activity.org.organization %></td>
     <td><%= activity.user.username %></td>
-    <td><%= link_to 'Show', activity %></td>
+	<td><%= activity.duration %></td>
+	<td><%= activity.starttime.to_formatted_s(:short) %></td>
     <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
     <td><%= link_to 'Destroy', activity, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
-</table>
 
-	Total Activities: <%= @activities.count %><br>
-	Total Time: <%= total_activity_time('all') %>hrs.<br>
-	Selected User Time: <%= @user_time %>
+</table>
   
+	<br />
+	<br>
+
+	<div class = "span3"><%= link_to 'New Activity', new_activity_path , :class => "btn success"%></div>

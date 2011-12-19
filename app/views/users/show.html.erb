@@ -1,11 +1,61 @@
-<div class="content">
+<style type="text/css">
+	.page-header {
+	  margin-bottom: 10px;
+	  height: 40px;
+	  border-bottom: 1px solid #ddd;
+	  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	  -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	}
+</style>
+
+
+      <div class="content">
+	
+ 		<div class="page-header">
+				<ul class="pills">
+				  <li><%= link_to 'Home' , root_path %></li>
+				  <li><%= link_to 'Organizations' , orgs_path %></li>
+				  <li><%= link_to 'Activities' , activities_path %></li>
+				  <li><a href="#">Donations</a></li>
+				  <li><a href="#">News and Comments</a></li>
+				  <li class="active"><%= link_to "Users", users_path %></li>
+				</ul>
+		</div>
+		<p class="notice"><%= notice %></p>
+		<p class="alert"><%= alert %></p>
   
-	<div class = "row"> <!-- /outer box -->
-		<div class = "span16">
+		<div class = "row"> <!-- /outer box -->
+			<div class = "span16">
 
-<p><%= @user.username %></p>
-<p><%= @user.first_name %></p>
-<p><%= @user.last_name %></p>
-<p><%= @user.email %></p>
+		      <fieldset>
+				<legend>User Information</legend>
 
-</div>
+				<div class = "row"> <!--  -->
+					<div class = "span5 offset1">
+						<p>Email:&nbsp; <%= @user.email %></p>
+						<p>Username:&nbsp; <%= @user.username %></p>
+						<p>Password:&nbsp; <i>hidden</i> <%= link_to "Edit Password", edit_user_path, :class => "label notice", :method => :get %></p>
+						<p>First name:&nbsp; <%= @user.first_name %></p>
+						<p>Last name:&nbsp; <%= @user.last_name %></p>
+						<p>Address:&nbsp; <%= @user.address %>
+						<p>City:&nbsp; <%= @user.city %>
+						<p>Facebook:&nbsp; <%= @user.facebook %>
+						<p>Comments:&nbsp; <%= @user.comments %></p>
+					</div>
+		
+					<div class = "span7">
+						<p>Photo:&nbsp;</p>
+	  				</div>
+		
+				</div>
+
+				<div class = "row"> <!--  -->
+					<div class = "span7 offset1">
+						<%= link_to 'Edit User', edit_user_path , :class => "btn info"%></div>
+					</div>
+				</div>
+			  </fieldset>
+
+			</div>
+		</div>

@@ -26,7 +26,10 @@
 		<p class="alert"><%= alert %></p>
 		
       <%= form_for @org, :url => org_path(@org), :html => { :class => :form } do |f| -%>
+		<fieldset>
+		  <legend>Edit Organization</legend>
         <%= render :partial => "form", :locals => {:f => f} %>
+		</fieldset>
       <% end -%>
 
 </div>

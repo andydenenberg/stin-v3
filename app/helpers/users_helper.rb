@@ -6,5 +6,9 @@ module UsersHelper
     return roles
   end
   
+  def x_roles(role) # used to translate value stored into english
+    x = roles
+    x[role][0]
+  end
   
 end

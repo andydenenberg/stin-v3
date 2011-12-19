@@ -14,8 +14,8 @@
 	
  		<div class="page-header">
 				<ul class="pills">
-				  <li class="active"><%= link_to 'Home' , root_path %></li>
-				  <li><%= link_to 'Organizations' , orgs_path %></li>
+				  <li><%= link_to 'Home' , root_path %></li>
+				  <li class="active"><%= link_to 'Organizations' , orgs_path %></li>
 				  <li><%= link_to 'Activities' , activities_path %></li>
 				  <li><a href="#">Donations</a></li>
 				  <li><a href="#">News and Comments</a></li>
@@ -25,32 +25,34 @@
 		<p class="notice"><%= notice %></p>
 		<p class="alert"><%= alert %></p>
       
-        <p><b>Organization:</b>
-          <%= @org.organization %>
-        </p>
+		<div class = "row"> <!-- /outer box -->
+			<div class = "span16">
 
-        <p><b>Logo:</b>
-          <%= show_photo(@org,:thumb) %>
-        </p>
-		
-        <p><b>Division:</b>
-          <%= @org.division %>
-        </p>
+		      <fieldset>
+				<legend>Organization Information</legend>
 
-        <p><b>Address:</b>
-          <%= @org.address %>
-        </p>
+				<div class = "row"> <!--  -->
+					<div class = "span5 offset1">
+				        <p>Organization:&nbsp;<%= @org.organization %></p>
+				        <p>Logo:&nbsp;<%= show_photo(@org,:thumb) %></p>
+				        <p>Division:&nbsp;<%= @org.division %></p>
+				        <p>Address:&nbsp;<%= @org.address %></p>
+				        <p>City:&nbsp;<%= @org.city %></p>
+						<p>Description:&nbsp;<%= @org.description %></p>
+						<p>Background:&nbsp;<%= @org.background %></p>
+					</div>
+				
+				</div>
 
-        <p><b>City:</b>
-          <%= @org.city %>
-        </p>
+				<div class = "row"> <!--  -->
+					<div class = "span7 offset1">
+						<%= link_to 'Edit Organization', edit_org_path , :class => "btn info"%></div>
+					</div>
+				</div>
+			  </fieldset>
 
-        <p><b>Description:</b>
-          <%= @org.description %>
-        </p>
+			</div>
 
-        <p><b>Background:</b>
-          <%= @org.background %>
-        </p>
+
 
 </div>

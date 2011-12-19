@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111217024530) do
+ActiveRecord::Schema.define(:version => 20111218051429) do
 
   create_table "activities", :force => true do |t|
     t.string   "name"
@@ -25,6 +25,12 @@ ActiveRecord::Schema.define(:version => 20111217024530) do
     t.integer  "reward"
     t.datetime "starttime"
     t.datetime "endtime"
+    t.decimal  "duration"
+    t.integer  "worker1"
+    t.integer  "worker2"
+    t.integer  "worker3"
+    t.integer  "worker4"
+    t.integer  "worker5"
   end
 
   add_index "activities", ["org_id"], :name => "index_activities_on_org_id"

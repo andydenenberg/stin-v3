@@ -6,6 +6,7 @@
     <th><%= sortable 'organization', "Organization" %></th>
     <th><%= sortable 'user_id', "Sponsor" %></th>
 	  <th>Activity Time</th>
+	  <th>Activities</th>
 	  <th>Record Activity</th>
 	  <th>Donations</th>
     <th class="last">&nbsp;</th>
@@ -17,6 +18,7 @@
       <td><%= link_to org.organization, org_path(org) %></td>
 	  <td><%= user_first_name(org.user_id) %></td>
 	  <td><%= total_activity_time(org.id) %></td>
+	  <td><%= org.activities.count %></td>
 	  <td><%= link_to "New", new_activity_path %></td>
 	
     <td class="last">

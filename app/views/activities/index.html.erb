@@ -79,6 +79,7 @@ $(function() {
 		<p class="notice"><%= notice %></p>
 		<p class="alert"><%= alert %></p>
 		
+<br>
 		Select Organization <%= select_tag "organizations", options_for_select(orgs_for_select) %>
 		&nbsp; 
 		User <%= select_tag "users", options_for_select(users_for_select) %>
@@ -86,11 +87,5 @@ $(function() {
 		Timeframe <%= select_tag "time_frame", options_for_select(time_frames) %>	<br><br>			  
 
 		<div id="table"> <%= render :partial => 'index', :layout => false %>
-
-
-
-<br />
-
-<%= link_to 'New Activity', new_activity_path %>
 
 </div>

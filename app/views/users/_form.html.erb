@@ -13,8 +13,6 @@
   <% end %>
 
 	<form action="" class="form">
-    <fieldset>
-      <legend>New User</legend>
       <div class="clearfix">
         <label for="xlInput3">Your Name</label>
         <div class="input">
@@ -32,7 +30,7 @@
       <div class="clearfix">
         <label for="xlInput3">Last Name</label>
         <div class="input">
-			<%= f.text_field :first_name %>
+			<%= f.text_field :last_name %>
 		</div>
 	 </div><!-- /clearfix -->
 
@@ -65,9 +63,8 @@
 		</div>
 	 </div><!-- /clearfix -->
 
- </fieldset>
  <div class="actions">
-   <button type="submit" class="btn success">Send</button>&nbsp;&nbsp;&nbsp;<a class="btn info" href="/">Cancel &raquo;</a>
+   <button type="submit" class="btn success">Send</button>&nbsp;&nbsp;&nbsp;<%= link_to 'Cancel >>', users_path , :class => "btn info"%>
  </div>
 
 

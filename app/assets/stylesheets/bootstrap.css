@@ -1993,7 +1993,7 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
   -moz-opacity: 0.4;
   opacity: 0.4;
 }
-.alert-message {
+.alert-message .notice {
   position: relative;
   padding: 7px 15px;
   margin-bottom: 18px;
