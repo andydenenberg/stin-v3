@@ -14,7 +14,7 @@ has_many :orgs
 has_many :activities
 has_many :donations
 
-#  config = YAML.load(File.read('../../../desktop/config.yml'))   
+  config = YAML.load(File.read('../../../desktop/config.yml'))   
 
 # paperclip
 has_attached_file :avatar, 

@@ -17,12 +17,23 @@
 				  <li class="active"><%= link_to 'Home' , root_path %></li>
 				</ul>
 		</div>
-		<p class="notice"><%= notice %></p>
-		<p class="alert"><%= alert %></p>
 		
-		<h2>Sign in</h2>
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+
+<div class="notice">
+	  <% if @user.errors.any? %>
+			  <p><strong><%= pluralize(@user.errors.count, "error") %> prohibited this activity from being saved:</strong></p>
+				<ul><% @user.errors.full_messages.each do |msg| %>
+			        <li><%= msg %></li>
+			    <% end %>
+				</ul>
+	  <% end %>
+</div>
+
+<fieldset>
+  <legend>Sign In</legend>
+
  <div class="clearfix">
    <label for="xlInput3">Email</label>
    <div class="input">
@@ -31,7 +42,7 @@
 </div><!-- /clearfix -->
 
  <div class="clearfix">
-   <label for="xlInput3">New Password</label>
+   <label for="xlInput3">Password</label>
    <div class="input">
 		<%= f.password_field :password %>
 	</div>
@@ -50,7 +61,7 @@
 
 <div class='row'>
 		<div class='span2 offset3'>
-		<button type="Sign in" class="btn success">Update</button>
+		<button type="Sign in" class="btn success">Sign in</button>
 	
 <% end %>
 
@@ -62,6 +73,6 @@
 		</div>
 </div>
 
-
+</fieldset>
 
 </div>
