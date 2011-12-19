@@ -19,12 +19,11 @@
 	  <td><%= org.user.username %></td>
 	  <td><%= total_activity_time(org.id) %></td>
 	  <td><%= org.activities.count %></td>
-	  <td><%= link_to "New", new_activity_path %></td>
+	  <td><%= link_to "New", new_activity_path, :class => "label success", :method => :get %></td>
 	
     <td class="last">
-      <%= link_to "Show", org_path(org) %> |
-      <%= link_to "Edit", edit_org_path(org) %> |
-      <%= link_to "Delete", org_path(org), :method => :delete, :confirm => "Are you sure?" %>
+	  <%= link_to "Edit", edit_org_path(org), :class => "label", :method => :get %>
+      <%= link_to "Delete", org_path(org), :class => "label warning", :method => :delete, :confirm => "Are you sure?" %>
     </td>
   </tr>          
   <% end -%>
