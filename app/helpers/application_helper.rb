@@ -12,12 +12,7 @@ module ApplicationHelper
     direction = column == sort_column && sort_direction == 'asc' ? 'desc' : 'asc'
     link_to title, { :sort => column, :direction => direction } , {:class => css_class}
   end
-  
-  
-  def user_first_name(user_id)
-    first_name = User.find(:all, :conditions => { :id  => user_id  }).first.username
-	end
-	
+  	
 	def show_photo(userp,size)
 	  if userp.avatar.file?
 		  image_tag userp.avatar.url(size)

@@ -23,30 +23,45 @@
 				</ul>
 		</div>
 		<p class="notice"><%= notice %></p>
-		<p class="alert"><%= alert %></p>
+
+		<div class = "row"> <!-- /outer box -->
+			<div class = "span16">
+
+		    <fieldset>
+				<legend>Activity Information</legend>
+
+				<div class = "row"> <!--  -->
+					<div class = "span5 offset1">
+						<p>Name:&nbsp;<%= @activity.name %></p>
+						<p>Organization:&nbsp;<%= @activity.org_id %></p>
+						<p>Worker:&nbsp;<%= @activity.user.username %></p>
+						<p>Additional Worker1:&nbsp;<%= @activity.worker1 %></p>
+						<p>Additional Worker2:&nbsp;<%= @activity.worker2 %></p>
+						<p>Additional Worker3:&nbsp;<%= @activity.worker3 %></p>
+						<p>Additional Worker4:&nbsp;<%= @activity.worker4 %></p>
+						<p>Additional Worker5:&nbsp;<%= @activity.worker5 %></p>
+					</div>
+
+
+					<div class = "span5 offset1">
+						<p>Start Time:&nbsp;<%= @activity.starttime %></p>
+						<p>Duration in Hours:&nbsp;<%= @activity.duration %></p>
+						<p>Description:&nbsp;<%= @activity.description %></p>
+						<p>Impact:&nbsp;<%= x_impact(@activity.impact) %></p>
+						<p>Reward:&nbsp;<%= x_reward(@activity.reward) %></p>
+
+					</div>
+				</div>
+			</fieldset>
+
+
+
+<div class = "row"> <!--  -->
+	<div class = "span7 offset1">
+		<%= link_to 'Edit Activity', edit_activity_path(@activity) , :class => "btn info" %>
+		<%= link_to 'No Change', activities_path , :class => "btn success" %>
 		
-<p>
-  <b>Name:</b>
-  <%= @activity.name %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @activity.description %>
-</p>
-
-<p>
-  <b>Org:</b>
-  <%= @activity.org %>
-</p>
-
-<p>
-  <b>User:</b>
-  <%= @activity.user %>
-</p>
-
-
-<%= link_to 'Edit', edit_activity_path(@activity) %> |
-<%= link_to 'Back', activities_path %>
+	</div>
+</div>
 
 </div>

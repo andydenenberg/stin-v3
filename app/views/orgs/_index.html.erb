@@ -16,7 +16,7 @@
   <tr>
 	  <td><%= show_photo(org,@logo_size)  %>
       <td><%= link_to org.organization, org_path(org) %></td>
-	  <td><%= user_first_name(org.user_id) %></td>
+	  <td><%= org.user.username %></td>
 	  <td><%= total_activity_time(org.id) %></td>
 	  <td><%= org.activities.count %></td>
 	  <td><%= link_to "New", new_activity_path %></td>
