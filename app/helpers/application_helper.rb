@@ -20,7 +20,7 @@ module ApplicationHelper
 	
 	def show_photo(userp,size)
 	  if userp.avatar.file?
-      data = 'placeholder'
+      data = userp.avatar.url(size)
 #		  image_tag userp.avatar.url(size)
 	  else
 		  data = 'No Photo on file'
