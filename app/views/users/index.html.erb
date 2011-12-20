@@ -36,7 +36,8 @@
 		<th>Photo</th>
 		<th>Username</th>
 		<th>Email</th>
-		<th>Login Count</th>
+		<th>Logins</th>
+		<th>Activities</th>
 		<th>Last Sign In</th>
 		<th>Role</th>
 		<th></th>
@@ -46,13 +47,14 @@
 	<% @users.each do |user| %>
 		<tr>
 			<td><%= show_photo(user,:thumb) %></td>
-			<td><%= user.username %></td>
-			<td><%= link_to user.email, user_path(user) %></td>
+			<td><%= link_to user.username, user_path(user) %></td>
+			<td><%= user.email %></td>
+			<td><%= user.activities.count %></td>
 			<td><%= user.sign_in_count %></td>
 			<td><%if user.last_sign_in_at.blank? %>Never logged in<% else %><%= time_ago_in_words(user.last_sign_in_at.to_datetime)+' ago' %><% end %></td>
 			<td><%= x_roles(user.role) %></td>
-			<td><%= link_to "Edit", edit_user_path(user) %></td>
-			<td><%= link_to "Delete", user, :method => :delete, :confirm => "Are you sure?" %></td>
+		  	<td><%= link_to "Edit", edit_user_path(user), :class => "label", :method => :get %></td>
+	      	<td><%= link_to "Delete", user, :class => "label warning", :method => :delete, :confirm => "Are you sure?" %></td>
 		</tr>
 <% end %>
 </table>
