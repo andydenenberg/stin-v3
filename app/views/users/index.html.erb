@@ -53,8 +53,8 @@
 			<td><%= user.sign_in_count %></td>
 			<td><%if user.last_sign_in_at.blank? %>Never logged in<% else %><%= time_ago_in_words(user.last_sign_in_at.to_datetime)+' ago' %><% end %></td>
 			<td><%= x_roles(user.role) %></td>
-		  	<td><%= link_to "Edit", edit_user_path(user), :class => "label", :method => :get %></td>
-	      	<td><%= link_to "Delete", user, :class => "label warning", :method => :delete, :confirm => "Are you sure?" %></td>
+		  	<td><%= link_to "Edit", edit_user_path(user), :class => "label", :method => :get %>
+				<%= link_to "Delete", user, :class => "label warning", :method => :delete, :confirm => "Are you sure?" %></td>
 		</tr>
 <% end %>
 </table>

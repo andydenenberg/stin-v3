@@ -17,8 +17,8 @@
     <td><%= activity.user.username %></td>
 	<td><%= activity.duration %></td>
 	<td><%= activity.starttime.to_formatted_s(:short) %></td>
-    <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
-    <td><%= link_to 'Destroy', activity, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Edit', edit_activity_path(activity), :class => "label", :method => :get %>
+		<%= link_to 'Destroy', activity, :class => "label warning", confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 
