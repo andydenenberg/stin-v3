@@ -33,10 +33,10 @@
 				<div class = "row"> <!--  -->
 					<div class = "span5 offset1">
 					<p id="notice"><%= notice %></p>
-					<p>Org: <%= @donation.org_id %></p>
-					<p>User: <%= @donation.user_id %></p>
-					<p>Kind: <%= @donation.kind %></p>
-					<p>Value: <%= @donation.value %></p>
+					<p>Org: <%= @donation.org.organization %></p>
+					<p>User: <%= @donation.user.username %></p>
+					<p>Kind: <%= x_donation_kind(@donation.kind) %></p>
+					<p>Value: <%= number_to_currency(@donation.value) %></p>
 					<p>Description: <%= @donation.description %></p>
 					<p>Made by: <%= @donation.made_by %></p>
 				</div>
