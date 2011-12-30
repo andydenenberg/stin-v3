@@ -18,12 +18,9 @@
 	  <td><%= number_to_currency(donation.value) %>
 	  <td><%= donation.description %></td>
 	  <td><%= donation.made_by %></td>
-	  <td><%= link_to "New", new_donation_path, :class => "label success", :method => :get %></td>
-	
-    <td class="last">
+	  <td><%= link_to "New", new_donation_path, :class => "label success", :method => :get %>
 	  <%= link_to "Edit", edit_donation_path(donation), :class => "label", :method => :get %>
-      <%= link_to "Delete", donation_path(donation), :class => "label warning", :method => :delete, :confirm => "Are you sure?" %>
-    </td>
+      <%= link_to "Delete", donation_path(donation), :class => "label warning", :method => :delete, :confirm => "Are you sure?" %></td>
   </tr>          
   <% end -%>
 </table>
