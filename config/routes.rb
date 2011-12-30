@@ -16,6 +16,8 @@ StinV4::Application.routes.draw do
   
 
   get "home/index"
+  get "home/show"
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

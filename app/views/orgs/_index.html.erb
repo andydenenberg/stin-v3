@@ -5,9 +5,7 @@
     <th><%= show_logo %></th>
     <th><%= sortable 'organization', "Organization" %></th>
     <th><%= sortable 'user_id', "Sponsor" %></th>
-	  <th>Activity Time</th>
 	  <th>Activities</th>
-	  <th>Record Activity</th>
 	  <th>Donations</th>
     <th class="last">&nbsp;</th>
   </tr>
@@ -17,11 +15,10 @@
 	  <td><%= show_photo(org,@logo_size)  %>
       <td><%= link_to org.organization, org_path(org) %></td>
 	  <td><%= org.user.username %></td>
-	  <td><%= total_activity_time(org.id) %></td>
-	  <td><%= org.activities.count %></td>
-	  <td><%= link_to "New", new_activity_path, :class => "label success", :method => :get %></td>
+	  <td>(<%= org.activities.count %>) <%= total_activity_time(org.id) %> hrs.</td>
+	  <td>(<%= Donation.total_count('All',org.id) %>) <%= number_to_currency(Donation.total_value('All', org.id)) %>
 	
-    <td class="last">
+    <td>
 	  <%= link_to "Edit", edit_org_path(org), :class => "label", :method => :get %>
       <%= link_to "Delete", org_path(org), :class => "label warning", :method => :delete, :confirm => "Are you sure?" %>
     </td>
