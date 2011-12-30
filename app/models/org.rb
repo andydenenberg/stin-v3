@@ -2,7 +2,7 @@ class Org < ActiveRecord::Base
   
   belongs_to :user
   has_many :activities
-#  has_many :donations
+  has_many :donations
   
   
   # for local storage use the next line

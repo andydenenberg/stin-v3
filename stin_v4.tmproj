@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>Documents/depaul/stin_v4/app/views/users/registrations/new.html.erb</string>
+	<string>app/views/users/_form.html.erb</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -21,98 +21,70 @@
 	<integer>273</integer>
 	<key>metaData</key>
 	<dict>
-		<key>Documents/depaul/stin_v4/app/controllers/application_controller.rb</key>
+		<key>app/models/donation.rb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>34</integer>
 				<key>line</key>
-				<integer>9</integer>
+				<integer>6</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>Documents/depaul/stin_v4/app/helpers/activities_helper.rb</key>
+		<key>app/models/org.rb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>4</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>app/models/user.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
 				<integer>16</integer>
-				<key>line</key>
-				<integer>72</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>Documents/depaul/stin_v4/app/views/home/index.html.erb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>51</integer>
-				<key>line</key>
-				<integer>41</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>22</integer>
-		</dict>
-		<key>Documents/depaul/stin_v4/app/views/users/_form.html.erb</key>
+		<key>app/views/donations/new.html.erb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
 				<integer>0</integer>
 				<key>line</key>
-				<integer>65</integer>
+				<integer>25</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>35</integer>
+			<integer>3</integer>
 		</dict>
-		<key>Documents/depaul/stin_v4/app/views/users/new.html.erb</key>
+		<key>app/views/users/_form.html.erb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>17</integer>
+				<integer>35</integer>
 				<key>line</key>
-				<integer>27</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>Documents/depaul/stin_v4/app/views/users/registrations/new.html.erb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>17</integer>
-				<key>line</key>
-				<integer>0</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>Documents/depaul/stin_v4/app/views/users/sessions/new.html.erb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>20</integer>
-				<key>line</key>
-				<integer>0</integer>
+				<integer>15</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -122,17 +94,15 @@
 	</dict>
 	<key>openDocuments</key>
 	<array>
-		<string>Documents/depaul/stin_v4/app/views/home/index.html.erb</string>
-		<string>Documents/depaul/stin_v4/app/controllers/application_controller.rb</string>
-		<string>Documents/depaul/stin_v4/app/views/users/sessions/new.html.erb</string>
-		<string>Documents/depaul/stin_v4/app/views/users/registrations/new.html.erb</string>
-		<string>Documents/depaul/stin_v4/app/views/users/new.html.erb</string>
-		<string>Documents/depaul/stin_v4/app/views/users/_form.html.erb</string>
-		<string>Documents/depaul/stin_v4/app/helpers/activities_helper.rb</string>
+		<string>app/models/org.rb</string>
+		<string>app/views/donations/new.html.erb</string>
+		<string>app/views/users/_form.html.erb</string>
+		<string>app/models/user.rb</string>
+		<string>app/models/donation.rb</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
 	<true/>
 	<key>windowFrame</key>
-	<string>{{288, 44}, {971, 711}}</string>
+	<string>{{303, 60}, {971, 710}}</string>
 </dict>
 </plist>

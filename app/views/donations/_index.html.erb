@@ -1,0 +1,33 @@
+<table class="zebra-striped">
+
+  <tr>  
+    <th><%= sortable 'org_id', "Organization" %></th>
+    <th><%= sortable 'user_id', "Sponsor" %></th>
+	  <th>Kind</th>
+	  <th>Value</th>
+	  <th>Description</th>
+	  <th>Made by</th>
+      <th>&nbsp;</th>
+  </tr>
+
+  <% @donations.each do |donation| -%>
+  <tr>
+      <td><%= link_to donation.org.organization, donation_path(donation) %></td>
+	  <td><%= donation.user.username %></td>
+	  <td><%= x_donation_kind(donation.kind) %></td>
+	  <td><%= number_to_currency(donation.value) %>
+	  <td><%= donation.description %></td>
+	  <td><%= donation.made_by %></td>
+	  <td><%= link_to "New", new_donation_path, :class => "label success", :method => :get %></td>
+	
+    <td class="last">
+	  <%= link_to "Edit", edit_donation_path(donation), :class => "label", :method => :get %>
+      <%= link_to "Delete", donation_path(donation), :class => "label warning", :method => :delete, :confirm => "Are you sure?" %>
+    </td>
+  </tr>          
+  <% end -%>
+</table>
+
+
+<br />
+

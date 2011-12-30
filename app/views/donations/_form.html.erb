@@ -1,0 +1,68 @@
+
+<div class = "row"> <!-- /outer box -->
+	<div class = "span16">
+		
+						
+	<div class = "row"> <!-- /left box -->
+		<div class = "span6">   
+
+			  <div class="clearfix">
+		          <label for="xlInput3">Organization</label>
+		          <div class="input">
+					<%= f.collection_select( :org_id , Org.all, :id, :organization) %>
+				  </div>
+			  </div>
+
+			  <div class="clearfix">
+		          <label for="xlInput3">Worker</label>
+		          <div class="input">
+					<%= f.collection_select( :user_id , User.all, :id, :username) %>
+				  </div>
+			  </div>
+
+			  <div class="clearfix">
+		          <label for="xlInput3">What kind</label>
+		          <div class="input">
+				    <%= f.select :kind, donation_kind %>
+				  </div>
+			  </div>
+
+		        <div class="clearfix">
+		          <label for="comments">Value</label>
+		          <div class="input textarea">
+				    <%= f.text_field :value  %>
+		          </div>
+		        </div><!-- /clearfix -->
+
+
+		</div><!-- /left box span-->
+								
+		<div class = "row"> 
+	        <div class="span6">  <!-- /right box -->
+
+			        <div class="clearfix">
+			          <label for="comments">Description</label>
+			          <div class="input textarea span5">
+					    <%= f.text_area :description ,  :class=>"xlarge" ,  :rows => '7', %>
+			          </div>
+		        	</div><!-- /clearfix -->
+
+						  <div class="clearfix">
+						    <label for="xlInput3">Made by</label>
+						    <div class="input">
+								<%= f.text_field :made_by %>
+							</div>
+						 </div><!-- /clearfix -->
+
+  	 	</div><!-- /right box span-->
+
+	</div> <!-- /outer box span -->
+	
+</div> <!-- /outer box row-->
+
+<div class="actions">
+  <button type="submit" class="btn success">Send</button>&nbsp;&nbsp;&nbsp;<%= link_to 'Cancel >>', orgs_path , :class => "btn info"%>
+</div>
+
+</div>
+

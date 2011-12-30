@@ -14,20 +14,27 @@
 	
  		<div class="page-header">
 				<ul class="pills">
-				  <li class="active"><%= link_to 'Home' , root_path %></li>
+				  <li><%= link_to 'Home' , root_path %></li>
 				  <li><%= link_to 'Organizations' , orgs_path %></li>
 				  <li><%= link_to 'Activities' , activities_path %></li>
-				  <li><%= link_to 'Donations' , donations_path %></li>
+				  <li class="active"><%= link_to 'Donations' , donations_path %></li>
 				  <li><a href="#">News and Comments</a></li>
 				  <li><%= link_to "Users", users_path %></li>
 				</ul>
 		</div>
-		<p class="notice"><%= notice %></p>
-		<p class="alert"><%= alert %></p>
-		
-      <%= form_for @org, :url => org_path(@org), :html => { :class => :form } do |f| -%>
+		<div class="notice"><%= notice %>
+			<% if @donation.errors.any? %>
+					  <p><strong><%= pluralize(@donation.errors.count, "error") %> prohibited this activity from being saved:</strong></p>
+						<ul><% @donation.errors.full_messages.each do |msg| %>
+					        <li><%= msg %></li>
+					    <% end %>
+						</ul>
+			<% end %>
+		</div>
+
+      <%= form_for :donation, :url => donations_path, :html => { :class => :form } do |f| -%>
 		<fieldset>
-		  <legend>Edit Organization</legend>
+		  <legend>Donation</legend>
         <%= render :partial => "form", :locals => {:f => f} %>
 		</fieldset>
       <% end -%>

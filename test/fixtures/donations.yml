@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  org_id: 1
+  user_id: 1
+  kind: 1
+  value: 9.99
+  description: MyText
+  made_by: MyString
+
+two:
+  org_id: 1
+  user_id: 1
+  kind: 1
+  value: 9.99
+  description: MyText
+  made_by: MyString
