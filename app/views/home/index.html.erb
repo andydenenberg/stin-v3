@@ -71,14 +71,14 @@
 									<div class = "span8 offset1">
 										<h3>Recent Activity</h3>
 										<br>
-										December 2011 - A donation made with Blanca's assistance is supporting children in Columbia...<br>
+										December 2011 - A donation made with Blanca's assistance is supporting children in Columbia...
 									</div>
 								</div>
 								<div class = "row">
 									<div class = "span8 offset2">
 								
 										<br><img class="thumbnail" src="/assets/ColumbianChildren12_2011.jpg" alt="">
-											<br><br><br>
+											<br>
 									</div>
 								</div>
 
@@ -96,14 +96,34 @@
 			            	  			<h3>Upcoming Opportunities</h3>
 										<br>
 
-										Check back for opportunities to help...<br>
+										Check back for opportunities to help...
 									</div>
 								</div>
 							</div>
 
 					</div> <!-- /middle row -->
 
-		  		</div> <!-- /outer box -->
+					<div class = "row">
+						<div class = "span14 offset1">
+							<hr>
+								<h3>Some of the Organizations that we support</h3><br>
+
+								<p style="display: block; margin-left: 100px; margin-right: auto">					
+										<% @orgs = Org.all %>
+										<% i = 0 %>
+										<% @orgs.each do |org| %>
+											<% i += 1 %>
+											<% if org.avatar.file? %>
+											<% break if i > 8 %>
+												<%= show_photo(org,:thumb) %>
+											<% end %>
+										<% end %>
+								</p>
+							</div>
+						</div>
+
+
+		  		</div> <!-- /outer box -->		
 		
 		</div>
 		
