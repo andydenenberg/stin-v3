@@ -37,7 +37,7 @@ class UsersController < ApplicationController
 #   def new
 #     if User.count > 0
 #     flash[:info] = 'Registrations are not open yet, but please check back soon'
-#     redirect_to root_path
+#     redirect_to home_index_path
 #     @skip_registration = true
 #     else
 #       @skip_registration = false
@@ -65,7 +65,7 @@ class UsersController < ApplicationController
 #  def create
 #    if User.count > 0
 #    flash[:info] = 'Registrations are not open yet, but please check back soon'
-#    redirect_to root_path
+#    redirect_to home_index_path
 #    else 
 #      super
 #    end

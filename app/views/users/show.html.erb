@@ -14,7 +14,7 @@
 	
  		<div class="page-header">
 				<ul class="pills">
-				  <li><%= link_to 'Home' , root_path %></li>
+				  <li><%= link_to 'Home' , home_index_path %></li>
 				  <li><%= link_to 'Organizations' , orgs_path %></li>
 				  <li><%= link_to 'Activities' , activities_path %></li>
 				  <li><%= link_to 'Donations' , donations_path %></li>
@@ -53,7 +53,8 @@
 
 				<div class = "row"> <!--  -->
 					<div class = "span7 offset1">
-						<%= link_to 'Edit User', edit_user_path , :class => "btn info"%></div>
+						<%= link_to 'Edit User', edit_user_path , :class => "btn info"%>
+						<%= link_to 'No Change', users_path , :class => "btn success" %></div>
 					</div>
 				</div>
 			  </fieldset>

@@ -7,6 +7,7 @@
 	  <th>Value</th>
 	  <th>Description</th>
 	  <th>Made by</th>
+	  <th>Date</th>
       <th>&nbsp;</th>
   </tr>
 
@@ -18,8 +19,8 @@
 	  <td><%= number_to_currency(donation.value) %>
 	  <td><%= donation.description %></td>
 	  <td><%= donation.made_by %></td>
-	  <td><%= link_to "New", new_donation_path, :class => "label success", :method => :get %>
-	  <%= link_to "Edit", edit_donation_path(donation), :class => "label", :method => :get %>
+	  <td><%= donation.created_at.to_formatted_s(:short) %></td>
+	  <td><%= link_to "Edit", edit_donation_path(donation), :class => "label", :method => :get %>
       <%= link_to "Delete", donation_path(donation), :class => "label warning", :method => :delete, :confirm => "Are you sure?" %></td>
   </tr>          
   <% end -%>
