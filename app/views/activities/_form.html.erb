@@ -9,6 +9,33 @@
 	}
 </style>
 
+<script type="text/javascript">
+
+// $(document).ready(function() {
+//  $("#starttime").datepicker({ dateFormat: 'yy-mm-dd' });
+// });
+	
+$(document).ready(function(){
+	 processChange();
+})
+
+function processChange( ) {
+  Initial_Date = document.getElementById('starttime').value ;
+//	alert(Initial_Date);
+
+  $("#starttime").datepicker( { dateFormat: 'yy-mm-dd', defaultDate: Initial_Date });
+
+  }
+
+$(function() {				
+  $("#starttime").focus(function() {	
+     processChange( ) ;
+  });
+				
+});	
+		
+</script>
+
  <div class="content">
 
  		<div class="page-header">
@@ -101,9 +128,8 @@
 					          <label for="mediumSelect">Activity Date</label>
 					          <div class="input medium">
 							    <span class="description">When was the activity performed?</span><br>
-							
-							  <%= f.datepicker :starttime %>
-							
+
+							<%= f.text_field  :starttime, :id => 'starttime' %>
 							
 
 							  </div>

@@ -44,7 +44,7 @@ class ActivitiesController < ApplicationController
   # GET /activities/new.json
   def new
     @activity = Activity.new
-    @activity.starttime = Time.now.to_formatted_s(:short)
+    @activity.starttime = Time.now.strftime( '%Y-%m-%d' ) 
 
     respond_to do |format|
       format.html # new.html.erb
@@ -54,7 +54,8 @@ class ActivitiesController < ApplicationController
 
   # GET /activities/1/edit
   def edit
-    @activity = Activity.find(params[:id])
+    @activity = Activity.find(params[:id])  
+    @activity.starttime = @activity.starttime.strftime( '%Y-%m-%d' )  
   end
 
   # POST /activities
@@ -111,7 +112,7 @@ class ActivitiesController < ApplicationController
   # PUT /activities/1.json
   def update
     @activity = Activity.find(params[:id])   
-
+    					
     respond_to do |format|
       if @activity.update_attributes(params[:activity])
         format.html { redirect_to @activity, notice: 'Activity was successfully updated.' }

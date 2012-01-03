@@ -32,7 +32,7 @@
 			<% end %>
 		</div>
 
-      <%= form_for :donation, :url => donations_path, :html => { :class => :form } do |f| -%>
+      <%= form_for :donation, :url => donation_path(@donation), :html => { :class => :form, :method => :put } do |f| -%>
 		<fieldset>
 		  <legend>Donation</legend>
         <%= render :partial => "form", :locals => {:f => f} %>

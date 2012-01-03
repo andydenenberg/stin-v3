@@ -1,7 +1,7 @@
 
 <table class="zebra-striped">
   <tr>
-    <th>Name</th>
+    <th>Activity</th>
     <th>Organization</th>
     <th>User</th>
     <th>Duration</th>
@@ -16,7 +16,7 @@
     <td><%= activity.org.organization %></td>
     <td><%= activity.user.username %></td>
 	<td><%= activity.duration %></td>
-	<td><%= activity.starttime.to_formatted_s(:short) %></td>
+	<td><%= activity.starttime.strftime( '%Y-%m-%d' ) %></td>
     <td><%= link_to 'Edit', edit_activity_path(activity), :class => "label", :method => :get %>
 		<%= link_to 'Destroy', activity, :class => "label warning", confirm: 'Are you sure?', method: :delete %></td>
   </tr>
@@ -28,3 +28,4 @@
 	<br>
 
 	<div class = "span3"><%= link_to 'New Activity', new_activity_path , :class => "btn success"%></div>
+
