@@ -14,7 +14,6 @@
   <% @donations.each do |donation| -%>
   <tr>
       <td><%= link_to donation.org.organization, donation_path(donation) %></td>
-	  <td><%= donation.user.username %></td>
 	  <td><%= x_donation_kind(donation.kind) %></td>
 	  <td><%= number_to_currency(donation.value) %>
 	  <td><%= donation.description %></td>

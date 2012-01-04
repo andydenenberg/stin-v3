@@ -34,7 +34,6 @@
 					<div class = "span5 offset1">
 					<p id="notice"><%= notice %></p>
 					<p>Org: <%= @donation.org.organization %></p>
-					<p>User: <%= @donation.user.username %></p>
 					<p>Kind: <%= x_donation_kind(@donation.kind) %></p>
 					<p>Value: <%= number_to_currency(@donation.value) %></p>
 					<p>Description: <%= @donation.description %></p>
