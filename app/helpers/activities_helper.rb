@@ -53,7 +53,7 @@ module ActivitiesHelper
   
   def time_frames
     time_frame = Array.new
-    time_frame = [['All' , 0], ['Current Month' , 1], ['Last Month', 2], ['Current Year', 3]]
+    time_frame = [['All' , 0], ['Current Month' , 1], ['Last Month', 2], ['Current Year', 3], ['Last Year', 4]]
     return time_frame
   end
   

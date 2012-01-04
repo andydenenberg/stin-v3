@@ -37,12 +37,12 @@ $(document).ready(function(){
 function processChange( ) {
     // make a GET call and replace the contents
 
-
+   WhichTimeFrame = document.getElementById('time_frame').value ;
    WhichUser = document.getElementById('users').value ;
    WhichOrganization = document.getElementById('organizations').value ;
     
     $.get('<%= sorted_activities_path %>', 
-          { user:WhichUser, org:WhichOrganization }, 
+          { user:WhichUser, org:WhichOrganization, timeframe:WhichTimeFrame }, 
                   function(data) {
             $("#table").html(data);
           });
@@ -59,6 +59,9 @@ $(function() {
      processChange( ) ;
   });
 
+  $("#time_frame").change(function() {
+     processChange( ) ;
+  });
 
 });			
 			

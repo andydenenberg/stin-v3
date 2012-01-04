@@ -1,0 +1,147 @@
+<style type="text/css">
+	.page-header {
+	  margin-bottom: 10px;
+	  height: 40px;
+	  border-bottom: 1px solid #ddd;
+	  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	  -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	}
+</style>
+
+<script type="text/javascript">
+
+// $(document).ready(function() {
+//  $("#starttime").datepicker({ dateFormat: 'yy-mm-dd' });
+// });
+	
+$(document).ready(function(){
+	 processChange();
+})
+
+function processChange( ) {
+  Initial_Date = document.getElementById('starttime').value ;
+//	alert(Initial_Date);
+
+  $("#starttime").datepicker( { dateFormat: 'yy-mm-dd', defaultDate: Initial_Date });
+
+  }
+
+$(function() {				
+  $("#starttime").focus(function() {	
+     processChange( ) ;
+  });
+				
+});	
+		
+</script>
+
+ <div class="content">
+
+ 		<div class="page-header">
+				<ul class="pills">
+				  <li><%= link_to 'Home' , home_index_path %></li>
+				  <li><%= link_to 'Organizations' , orgs_path %></li>
+				  <li class="active"><a href="#">Activities</a></li>
+				  <li><%= link_to 'Donations' , donations_path %></li>
+				  <li><a href="#">News and Comments</a></li>
+				  <li><%= link_to "Users", users_path %></li>
+				</ul>
+		</div>
+
+		<%= form_for(@activity) do |f| %>
+
+	<div class="notice">
+		  <% if @activity.errors.any? %>
+				  <p><strong><%= pluralize(@activity.errors.count, "error") %> prohibited this activity from being saved:</strong></p>
+					<ul><% @activity.errors.full_messages.each do |msg| %>
+				        <li><%= msg %></li>
+				    <% end %>
+					</ul>
+		  <% end %>
+	</div>
+
+
+	<div class = "row"> <!-- /outer box -->
+		<div class = "span16">
+				
+			<div class = "row"> <!-- /inner box -->
+				<div class = "span7">
+							
+						  <div class="clearfix">
+					          <label for="xlInput3">Activity</label>
+					          <div class="input">
+							    <span class="description">What did you do??</span><br>
+						    	<%= f.text_field :name %>
+							  </div>
+						  </div>
+						
+						  <div class="clearfix">
+					          <label for="xlInput3">Organization</label>
+					          <div class="input">
+								<%= f.collection_select( :org_id , Org.all, :id, :organization) %>
+							  </div>
+						  </div>
+						  <div class="clearfix">
+					          <label for="xlInput3">Worker</label>
+					          <div class="input">
+								<%= f.collection_select( :user_id , User.all, :id, :username) %>
+							  </div>
+						  </div>
+				</div>
+					
+				<div class = "span7">
+								
+						  <div class="clearfix">
+					          <label for="mediumSelect">Activity Date</label>
+					          <div class="input medium">
+							    <span class="description">When was the activity performed?</span><br>
+
+							<%= f.text_field  :starttime, :id => 'starttime' %>
+							
+
+							  </div>
+						  </div>
+												
+						  <div class="clearfix">
+					          <label for="normalSelect">Duration in Hours</label>
+					          <div class="input">
+							    <%= f.text_field :duration  %><br>
+							  </div>
+						  </div>
+ 
+				        <div class="clearfix">
+				          <label for="comments">Description</label>
+				          <div class="input textarea span5">
+						    <%= f.text_area :description ,  :class=>"xlarge" ,  :rows => '7', %>
+				          </div>
+				        </div><!-- /clearfix -->
+						  <div class="clearfix">
+					          <label for="xlInput3">Impact</label>
+					          <div class="input">
+							    <span class="description">How useful was the activity?</span><br>
+							    <%= f.select :impact, impact_choices %>
+							  </div>
+						  </div>
+						  <div class="clearfix">
+					          <label for="xlInput3">Reward</label>
+					          <div class="input">
+							    <span class="description">How did the activity make you feel?</span><br>
+							    <%= f.select :reward, reward_choices %>
+							  </div>
+						  </div>
+
+				</div>
+		</div>
+
+		 <div class="actions">
+		   <button type="submit" class="btn success">Send</button>&nbsp;&nbsp;&nbsp;<%= link_to "Cancel" , activities_path , :class => "btn info"%>
+		 </div>
+
+			<% end %>
+
+		</div> <!-- /outer box span-->
+  </div> <!-- /outer box row-->
+
+</div> <!-- /content -->
+

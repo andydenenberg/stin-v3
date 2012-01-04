@@ -16,6 +16,9 @@ end
 
 gem 'will_paginate'
 
+# gem 'bootstrap-will_paginate' 
+# put code directly in application_helper.rb instead
+
 gem 'jquery-rails'
 gem 'jquery_datepicker'
 
