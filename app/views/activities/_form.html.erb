@@ -152,14 +152,14 @@ $(function() {
 					          <label for="xlInput3">Impact</label>
 					          <div class="input">
 							    <span class="description">How useful was the activity?</span><br>
-							    <%= f.select :impact, impact_choices %>
+							    <%= f.select :impact, impact_choices, :selected => 2 %>
 							  </div>
 						  </div>
 						  <div class="clearfix">
 					          <label for="xlInput3">Reward</label>
 					          <div class="input">
 							    <span class="description">How did the activity make you feel?</span><br>
-							    <%= f.select :reward, reward_choices %>
+							    <%= f.select :reward, reward_choices, :selected => 2 %>
 							  </div>
 						  </div>
 
