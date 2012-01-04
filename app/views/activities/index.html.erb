@@ -87,7 +87,7 @@ $(function() {
 		&nbsp; 
 		User <%= select_tag "users", options_for_select(users_for_select) %>
 		&nbsp;			  
-		Timeframe <%= select_tag "time_frame", options_for_select(time_frames, 3) %>	<br><br>			  
+		Timeframe <%= select_tag "time_frame", options_for_select(time_frames) %>	<br><br>			  
 
 		<div id="table"> <%= render :partial => 'index', :layout => false %>
 
