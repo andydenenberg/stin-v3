@@ -1,5 +1,5 @@
 module ActivitiesHelper
-
+  
   def organization_name(org_id)
     name = Org.find(:all, :conditions => { :id  => org_id  }).first.organization
   end

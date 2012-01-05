@@ -18,6 +18,19 @@ validates_numericality_of :duration
     end
     return total_hours
   end
-
-
+  
+  def self.show_date_range ( user, organization, startdate, enddate )
+    if    user == 'All' && organization == 'All' 
+            @acts = Activity.all(:conditions => ["starttime >= ? AND starttime <= ?", startdate, enddate] )
+    elsif user == 'All' && organization != 'All'
+            @acts = Activity.all(:conditions => ["starttime >= ? AND starttime <= ? AND org_id == ?", startdate, enddate, organization] ) 
+    elsif user != 'All' && organization == 'All'
+            @acts = Activity.all(:conditions => ["starttime >= ? AND starttime <= ? AND user_id == ?", startdate, enddate, user] ) 
+    elsif user != 'All' && organization != 'All'
+            @acts = Activity.all(:conditions => ["starttime >= ? AND starttime <= ? AND user_id == ? AND org_id == ?", startdate, enddate, user, organization] ) 
+    end
+    return @acts
+    puts @acts
+  end
+  
 end

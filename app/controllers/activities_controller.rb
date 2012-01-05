@@ -3,41 +3,10 @@ class ActivitiesController < ApplicationController
   def sorted
       user = params[:user]
       organization = params[:org]
-      timeframe = params[:timeframe]
-
-# require 'date'
-
-      if timeframe == '0' # All dates
-        startdate = '2000-01-01'
-        enddate = Date.today.to_s
-      elsif timeframe == '1' # Current Month
-        startdate = Date.today.beginning_of_month.to_s
-        enddate = Date.today.end_of_month.to_s
-      elsif timeframe == '2' # Last Month
-        startdate = Date.today.prev_month.year.to_s + '-' + Date.today.prev_month.month.to_s + '-' + '01'
-        enddate = Date.civil(Date.today.prev_month.year, Date.today.prev_month.month, -1 ).to_s
-      elsif timeframe == '3' # Current Year
-        startdate = Date.today.year.to_s + '-01-01'
-        enddate = Date.today.year.to_s + '-12-31'
-      elsif timeframe == '4' # Last Year
-        startdate = Date.today.prev_year.year.to_s + '-01-01'
-        enddate = Date.today.prev_year.year.to_s + '-12-31'
-      end
-    
-# @timeframe = timeframe
-# @startdate = startdate
-# @enddate = enddate
-
-      if    user == 'All' && organization == 'All' 
-              @activities = Activity.all(:conditions => ["starttime >= ? AND starttime <= ?", startdate, enddate] )
-      elsif user == 'All' && organization != 'All'
-              @activities = Activity.all(:conditions => ["starttime >= ? AND starttime <= ? AND org_id == ?", startdate, enddate, organization] ) 
-      elsif user != 'All' && organization == 'All'
-              @activities = Activity.all(:conditions => ["starttime >= ? AND starttime <= ? AND user_id == ?", startdate, enddate, user] ) 
-      elsif user != 'All' && organization != 'All'
-              @activities = Activity.all(:conditions => ["starttime >= ? AND starttime <= ? AND user_id == ? AND org_id == ?", startdate, enddate, user, organization] ) 
-      end
-                                    
+      ranges = show_time_window(params[:timeframe])
+      startdate = ranges[0]
+      enddate = ranges[1]
+      @activities = Activity.show_date_range( user, organization , startdate, enddate )
 
 #      @user_time = Activity.user_time(user, organization)
 #      @orgs = Org.all
@@ -51,12 +20,15 @@ class ActivitiesController < ApplicationController
   # GET /activities.json
   def index
 #    @activities = Activity.all
-    @activities = Activity.all
+      ranges = show_time_window('3') # the index value needs to be manually synced with the index.html - selector
+      startdate = ranges[0]
+      enddate = ranges[1]
+      @activities = Activity.show_date_range( 'All', 'All' , startdate, enddate )
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @activities }
-    end
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @activities }
+      end
   end
 
   # GET /activities/1
@@ -160,4 +132,29 @@ class ActivitiesController < ApplicationController
       format.json { head :ok }
     end
   end
+  
+  
+  def show_time_window ( timeframe )
+    if timeframe == '0' # All dates
+      startdate = '2000-01-01'
+      enddate = Date.tomorrow.to_s
+    elsif timeframe == '1' # Current Month
+      startdate = Date.today.beginning_of_month.to_s
+      enddate = Date.today.end_of_month.to_s
+    elsif timeframe == '2' # Last Month
+      startdate = Date.today.prev_month.year.to_s + '-' + Date.today.prev_month.month.to_s + '-' + '01'
+      enddate = Date.civil(Date.today.prev_month.year, Date.today.prev_month.month, -1 ).to_s
+    elsif timeframe == '3' # Current Year
+      startdate = Date.today.year.to_s + '-01-01'
+      enddate = Date.today.year.to_s + '-12-31'
+    elsif timeframe == '4' # Last Year
+      startdate = Date.today.prev_year.year.to_s + '-01-01'
+      enddate = Date.today.prev_year.year.to_s + '-12-31'
+    end
+    time_window = [startdate, enddate ]
+    return time_window
+  end
+  
+  
+  
 end
