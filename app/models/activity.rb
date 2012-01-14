@@ -23,11 +23,11 @@ validates_numericality_of :duration
     if    user == 'All' && organization == 'All' 
             @acts = Activity.all(:conditions => ["starttime >= ? AND starttime <= ?", startdate, enddate] )
     elsif user == 'All' && organization != 'All'
-            @acts = Activity.all(:conditions => ["starttime >= ? AND starttime <= ? AND org_id == ?", startdate, enddate, organization] ) 
+            @acts = Activity.all(:conditions => ["starttime >= ? AND starttime <= ? AND org_id = ?", startdate, enddate, organization] ) 
     elsif user != 'All' && organization == 'All'
-            @acts = Activity.all(:conditions => ["starttime >= ? AND starttime <= ? AND user_id == ?", startdate, enddate, user] ) 
+            @acts = Activity.all(:conditions => ["starttime >= ? AND starttime <= ? AND user_id = ?", startdate, enddate, user] ) 
     elsif user != 'All' && organization != 'All'
-            @acts = Activity.all(:conditions => ["starttime >= ? AND starttime <= ? AND user_id == ? AND org_id == ?", startdate, enddate, user, organization] ) 
+            @acts = Activity.all(:conditions => ["starttime >= ? AND starttime <= ? AND user_id = ? AND org_id = ?", startdate, enddate, user, organization] ) 
     end
     return @acts
     puts @acts
