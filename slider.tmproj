@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>../slider/app/controllers/stocks_controller.rb</string>
+	<string>../slider/app/views/stocks/index.html.erb</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -91,35 +91,91 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>../slider/app/views/stocks/index.html.erb</key>
+		<key>../slider/app/views/stocks/edit.html.erb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
 				<integer>0</integer>
 				<key>line</key>
-				<integer>53</integer>
+				<integer>0</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>../slider/app/views/stocks/index.html.erb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>51</integer>
+				<key>line</key>
+				<integer>5</integer>
 			</dict>
 			<key>columnSelection</key>
 			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>33</integer>
+			<integer>3</integer>
 			<key>selectFrom</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>19</integer>
 				<key>line</key>
-				<integer>49</integer>
+				<integer>5</integer>
 			</dict>
 			<key>selectTo</key>
 			<dict>
 				<key>column</key>
+				<integer>51</integer>
+				<key>line</key>
+				<integer>5</integer>
+			</dict>
+		</dict>
+		<key>../slider/app/views/stocks/index.html_bak.erb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
 				<integer>0</integer>
 				<key>line</key>
-				<integer>53</integer>
+				<integer>0</integer>
 			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>../slider/app/views/stocks/new.html.erb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>0</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>../slider/app/views/stocks/show.html.erb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>0</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
 		</dict>
 		<key>../slider/config/routes.rb</key>
 		<dict>
@@ -154,15 +210,19 @@
 	<array>
 		<string>../slider/config/routes.rb</string>
 		<string>../slider/app/views/stocks/directory.html.erb</string>
+		<string>../slider/app/views/stocks/edit.html.erb</string>
+		<string>../slider/app/views/stocks/index.html_bak.erb</string>
 		<string>../slider/app/views/stocks/_filtered.html.erb</string>
 		<string>../slider/app/views/stocks/_form.html.erb</string>
 		<string>../slider/app/views/stocks/_stock.html.erb</string>
 		<string>../slider/app/views/stocks/index.html.erb</string>
+		<string>../slider/app/views/stocks/new.html.erb</string>
+		<string>../slider/app/views/stocks/show.html.erb</string>
 		<string>../slider/app/controllers/stocks_controller.rb</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
 	<true/>
 	<key>windowFrame</key>
-	<string>{{850, 79}, {421, 693}}</string>
+	<string>{{398, 304}, {772, 711}}</string>
 </dict>
 </plist>
