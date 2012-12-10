@@ -10,7 +10,8 @@ class Org < ActiveRecord::Base
 
   # to store on S3 use the following:
 
-#    config = YAML.load(File.read('../../../desktop/config.yml'))   
+  # uncomment to run local - comment to run on Heroku
+#    config = YAML.load(File.read('../config.yml'))   
 
     # paperclip
     has_attached_file :avatar, 
