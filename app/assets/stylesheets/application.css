@@ -6,6 +6,15 @@
  *= require_tree . 
 */
 
+.center_table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.center_text {
+text-align: center
+}
+
 .current {
 	padding-right: 12px;
 	background-repeat: no-repeat;
