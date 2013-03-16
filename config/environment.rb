@@ -5,12 +5,18 @@ require File.expand_path('../application', __FILE__)
 StinV4::Application.initialize!
 
 # config = YAML.load(File.read('../../../desktop/config.yml'))   
+   config = File.exist?('../config.yml') ? YAML.load(File.read('../config.yml')) : nil
+
+   name =  ENV['SENDGRID_USERNAME']
+   pword = ENV['SENDGRID_PASSWORD'] 
+   if config
+     name =  config['user_name']
+     pword = config['password']
+   end
 
 ActionMailer::Base.smtp_settings = {
-#  :user_name =>  config['user_name'],
-#  :password => config['password'],
-  :user_name =>  ENV['SENDGRID_USERNAME'] ,
-  :password => ENV['SENDGRID_PASSWORD'] ,
+  :user_name =>  name ,
+  :password => pword ,
   :domain => "ospreypointpartners.com",
   :address => "smtp.sendgrid.net",
   :port => 587,
